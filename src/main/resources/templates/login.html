@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common::commonHeader('登陆')">
+</head>
+<body>
+<!-- header -->
+<div th:include="common::commonNav"></div>
+<!-- //header -->
+
+<!-- banner -->
+<div class="banner-top" style="margin-top:5em;">
+    <div class="container">
+
+        <h3 class="animated wow fadeInRight" data-wow-delay=".5s"><a th:href="/manager/login">登录</a><label>/</label>
+            <a href="/manager/register" style="color:#fff">注册</a></h3>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- //banner -->
+
+<!-- contact -->
+<div class="login">
+    <div class="container">
+        <form th:action="@{/manager/account/login}" th:object="${loginUser}" method="post">
+            <div class="col-md-6 login-do1 animated wow fadeInLeft" data-wow-delay=".5s">
+                <div class="login-mail">
+                    <input type="text" name="email" placeholder="邮箱" th:value="${loginUser?.email}" required="">
+                    <i class="glyphicon glyphicon-envelope"></i>
+                </div>
+                <div class="login-mail">
+                    <input type="password" name="password" placeholder="密码" th:value="${loginUser?.password}"required="">
+                    <i class="glyphicon glyphicon-lock"></i>
+                </div>
+                <a class="news-letter " href="#">
+                    <label class="checkbox1"><input type="checkbox" name="checkbox"><i> </i>忘记密码</label>
+                </a>
+
+            </div>
+            <div class="col-md-6 login-do animated wow fadeInRight" data-wow-delay=".5s">
+                <label class="hvr-sweep-to-top login-sub">
+                    <input type="submit" value="登录">
+                </label>
+                <p>没有账户?</p>
+                <a href="register.html" class="hvr-sweep-to-top">注册</a>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <span th:text="${message}"></span>
+            </div>
+
+            <div class="clearfix"></div>
+        </form>
+
+    </div>
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="fix-footer"></div>
+</div>
+<!--//contact---->
+
+<!-- footer -->
+<div th:include="common::commonFooter"></div>
+<!-- //footer -->
+</body>
+
+</html>
+
+
+

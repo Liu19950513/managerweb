@@ -1,0 +1,28 @@
+/*-- mystyle --*/
+
+.my-a{
+	text-decoration:none;
+	color:#ccc;
+}
+.my-a:hover{
+	text-decoration:none;
+	color:#01cfcf;
+}
+.my-a:focus{
+	text-decoration:none;
+	color:#fff;
+}
+.my-icon{
+	color:#ccc;
+}
+.my-icon:hover{
+	color:#01cfcfff;
+}
+
+.fix-footer{
+	width:100%;
+	height:10em;
+	
+}
+/*-- mystyle --*/
+

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>主页</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Classic Style Responsive web templates, Bootstrap Web Templates, Flat Web Templates, Android Compatible web templates,
+Smartphone Compatible web templates, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+    <!-- //for-mobile-apps -->
+    <link  th:href="@{/css/bootstrap.css}" href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/style.css}" href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/mystyle.css}" href="css/mystyle.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- js -->
+    <script th:src="@{/js/jquery.min.js}"src="js/jquery.min.js"></script>
+    <!-- //js -->
+    <!-- cart -->
+    <script th:src="@{/js/simpleCart.min.js}" src="js/simpleCart.min.js"></script>
+    <!-- cart -->
+    <!-- for bootstrap working -->
+    <script th:src="@{/js/bootstrap-3.1.1.min.js}" src="js/bootstrap-3.1.1.min.js"></script>
+    <!-- //for bootstrap working -->
+    <!-- animation-effect -->
+    <link th:href="@{/css/animate.min.css}" href="css/animate.min.css" rel="stylesheet">
+    <script th:src="@{/js/wow.min.js}" src="js/wow.min.js"></script>
+    <script>
+ new WOW().init();
+
+    </script>
+    <!-- //animation-effect -->
+    <link href='https://fonts.googleapis.com/css?family=Cabin:400,500,600,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body>
+<!-- header -->
+<div class="header navbar-fixed-top">
+
+    <div class="header-grid ">
+        <div class="container" style="background-color:#333;">
+            <div class="logo-nav">
+
+                <nav class="navbar navbar-default " role="navigation">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header nav_2">
+                        <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse"
+                                data-target="#bs-megadropdown-tabs">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-brand logo-nav-left wow fadeInLeft animated" data-wow-delay=".5s">
+
+                            <h1 class="animated wow pulse" data-wow-delay=".5s">
+                                <a href="/manager/home"><img th:src="@{/Image/logoJPG.jpg}" src="./Image/logoJPG.jpg" class="img-circle"
+                                                         style="width:20%;float:right-side">
+                                    XIU<span>MA</span>
+                                </a>
+
+                            </h1>
+
+                        </div>
+
+                    </div>
+
+                    <div class="collapse navbar-collapse " id="bs-megadropdown-tabs">
+                        <ul class="nav navbar-nav">
+                            <li><a href="userCenter.html" class="act"> <i class="glyphicon glyphicon-user"></i>会员中心</a>
+                            </li>
+                            <li><a href="like1.html" class=""><i class="glyphicon glyphicon-heart"></i>喜好测评 </a></li>
+                            <li><a href="product_jacket.html" class=""><i class="glyphicon glyphicon-lock"></i>产品分类 </a>
+                            </li>
+                            <li><a href="contact.html"><i class="	glyphicon glyphicon-phone-alt"></i>联系我们</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //header -->
+
+<!-- banner -->
+<div class="banner-top" style="margin-top:5em;" >
+    <div class="container" th:object="${loginUser}" >
+        <div>
+            <h3 class="animated wow fadeInRight" data-wow-delay=".5s"><a href="/manager/login">登录</a><label>/</label><a
+                    href="/manager/register" style="color:#fff">注册</a></h3>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- //banner -->
+
+
+<!--content-->
+<div class="content">
+    <!--conten head-->
+    <div class="content-head">
+
+        <!-- requried-jsfiles-for owl -->
+        <link th:href="@{/css/owl.carousel.css}" href="css/owl.carousel.css" rel="stylesheet">
+        <script th:src="@{/js/owl.carousel.js}" src="js/owl.carousel.js"></script>
+        <script>
+						$(document).ready(function() {
+							$("#owl-demo").owlCarousel({
+								items : 2,
+								lazyLoad : false,
+								autoPlay : true,
+								navigation : true,
+								navigationText :  true,
+								pagination : false,
+							});
+						});
+
+        </script>
+        <!-- //requried-jsfiles-for owl -->
+
+        <!-- start content_slider -->
+        <div id="owl-demo" class="owl-carousel">
+            <div class="item">
+                <a th:href="@{/single.html}"><img class="img-responsive" th:src="@{/images/bb.png}" alt=""/></a>
+                <a th:href="@{/single.html}" class="shop-2">马上搭配</a>
+            </div>
+            <div class="item">
+                <a th:href="@{/single.html}"><img class="img-responsive" th:src="@{/images/bb1.png}" alt=""/></a>
+                <a th:href="@{/single.html}" class="shop-2">马上搭配</a>
+            </div>
+            <div class="item">
+                <a th:href="@{/single.html}"><img class="img-responsive" th:src="@{/images/bb.png}" alt=""/> </a>
+                <a th:href="@{/single.html}" class="shop-2">马上搭配</a>
+            </div>
+            <div class="item">
+                <a th:href="@{/single.html}"><img class="img-responsive" src="images/bb1.png" alt=""/></a>
+                <a th:href="@{/single.html}" class="shop-2">马上搭配</a>
+            </div>
+        </div>
+        <!-- //end content_slider -->
+    </div>
+    <!--//conten head-->
+
+    <div class="clearfix"></div>
+    <div class="fix-footer"></div>
+</div>
+</div>
+<!---->
+
+
+<!-- footer -->
+<div class="footer navbar-fixed-bottom">
+    <div class="container" align="center">
+        <ul class="nav nav-tabs nav-tabs-justified">
+            <div class="row footer-icon" align="center" style="margin-top: -0.5em">
+                <!--
+                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><span class="glyphicon glyphicon-bookmark my-icon" > </span><br><a class="my-a" href="aboutUs.html">关于我们</a></li></div>
+                -->
+                <div class="col-md-6 col-sm-6 col-xs-6" align="center">
+                    <li><span class="glyphicon glyphicon-home my-icon"></span><br><a class="my-a" href="home.html">首
+                        页</a></li>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6" align="center">
+                    <li><span class="glyphicon glyphicon-comment my-icon"></span><br><a class="my-a"
+                                                                                        href="contact.html">帮助中心</a>
+                    </li>
+                </div>
+            </div>
+        </ul>
+    </div>
+</div>
+<!-- //footer -->
+
+</body>
+</html>
+
+
+

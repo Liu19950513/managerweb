@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common::commonHeader('测评')">
+</head>
+
+<body>
+<!-- header -->
+<div th:include="common::commonNav"></div>
+<!-- //header -->
+
+	<!--content-->
+<div class="product" style="margin-top:5em;">
+		<div>
+			<div class="colors animated wow fadeInUp animated" data-wow-delay=".5s" >
+				<h3>肤色</h3>
+			<br>
+						<div class="container" align="center">
+							<ul class="nav nav-tabs nav-tabs-justified" style="color:#fff;font-size:0.7em;">
+								<div class="row" align="center" style="margin-top:0px">
+									<div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+										<div class=" grid-product ">
+											<figure>
+												<div class="grid-img">
+													<img src="Image/lightwarm.png" class="img-responsive" alt="" align="center">
+												</div>
+											</figure>
+										</div>
+										<div class="women">
+											
+											<p></p>
+											<a href="#" data-text="浅暖" class="but-hover1 item_add">浅暖</a>
+										</div>
+									</div></li></div>
+									<div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+										<div class=" grid-product ">
+											<figure>
+												<div class="grid-img">
+													<img src="Image/lightcold.png" class="img-responsive" alt="" align="center">
+												</div>
+											</figure>
+										</div>
+										<div class="women">
+											
+											<p></p>
+											<a href="#" data-text="浅冷" class="but-hover1 item_add">浅冷</a>
+										</div>
+									</div></li></div>
+									<div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+										<div class=" grid-product ">
+											<figure>
+												<div class="grid-img">
+													<img src="Image/mediumcold.png" class="img-responsive" alt="" align="center">
+												</div>
+											</figure>
+										</div>
+										<div class="women">
+											
+											<p></p>
+											<a href="#" data-text="中偏冷" class="but-hover1 item_add">中偏冷</a>
+										</div>
+									</div></li></div>
+								</div>
+
+								<br>
+								<div class="row" align="center" style="margin-top:0px">
+									<div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+										<div class=" grid-product ">
+											<figure>
+												<div class="grid-img">
+													<img src="Image/mediumwarm.png" class="img-responsive" alt="" align="center">
+												</div>
+											</figure>
+										</div>
+										<div class="women">
+											
+											<p></p>
+											<a href="#" data-text="中偏暖" class="but-hover1 item_add">中偏暖</a>
+										</div>
+									</div></li></div>
+									<div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+										<div class=" grid-product ">
+											<figure>
+												<div class="grid-img">
+													<img src="Image/deepwarm.png" class="img-responsive" alt="" align="center">
+												</div>
+											</figure>
+										</div>
+										<div class="women">
+											
+											<p></p>
+											<a href="#" data-text="深暖" class="but-hover1 item_add">深暖</a>
+										</div>
+									</div></li></div>
+									<div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+										<div class=" grid-product ">
+											<figure>
+												<div class="grid-img">
+													<img src="Image/deepcold.png" class="img-responsive" alt="" align="center">
+												</div>
+											</figure>
+										</div>
+										<div class="women">
+											
+											<p></p>
+											<a href="#" data-text="深冷" class="but-hover1 item_add">深冷</a>
+										</div>
+									</div></li></div>
+								</div>
+							</ul>
+						</div>
+			</div>
+		<br>
+		</div>
+	
+<div>
+	<div  class="col-md-6 col-sm-6 col-xs-6" align="center">
+		<a href="home.html"><input type="submit"  class="btn btn-info vertical-center" value=" 上一步 " /></a>
+	</div>
+	
+	<div  class="col-md-6 col-sm-6 col-xs-6" align="center">
+		<a href="like2.html"><input type="submit"  class="btn btn-info vertical-center" value=" 下一步 " /></a>
+	</div>
+</div>
+	
+	
+	<div class="fix-footer"></div>
+
+</div>
+
+<!-- footer -->
+<footer th:fragment="commonFooter">
+
+    <!-- js -->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <!-- //js -->
+    <!-- cart -->
+    <script th:src="@{/js/simpleCart.min.js}" src="js/simpleCart.min.js"></script>
+    <!-- cart -->
+    <!-- for bootstrap working -->
+    <script th:src="@{/js/bootstrap-3.1.1.min.js}" src="js/bootstrap-3.1.1.min.js"></script>
+    <!-- //for bootstrap working -->
+    <!-- animation-effect -->
+    <link th:href="@{/css/animate.min.css}" href="css/animate.min.css" rel="stylesheet">
+    <script th:src="@{/js/wow.min.js}" src="js/wow.min.js"></script>
+    <script>
+ new WOW().init();
+
+    </script>
+    <div class="footer navbar-fixed-bottom">
+        <div class="container" align="center">
+            <ul class="nav nav-tabs nav-tabs-justified">
+                <div class="row footer-icon" align="center" style="margin-top: -0.5em">
+                    <!--
+                    <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><span class="glyphicon glyphicon-bookmark my-icon" > </span><br><a class="my-a" href="aboutUs.html">关于我们</a></li></div>
+                    -->
+                    <div class="col-md-6 col-sm-6 col-xs-6" align="center">
+                        <li><span class="glyphicon glyphicon-home my-icon"></span><br><a class="my-a" href="home.html">首
+                            页</a></li>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6" align="center">
+                        <li><span class="glyphicon glyphicon-comment my-icon"></span><br><a class="my-a"
+                                                                                            href="contact.html">帮助中心</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!--//footer-->
+
+</body>
+</html>

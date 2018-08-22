@@ -1,0 +1,8 @@
+server:
+  port: 8110
+spring:
+  application:
+    name: managerweb
+  thymeleaf:
+    cache: false
+    mode: html
