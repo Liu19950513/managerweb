@@ -81,6 +81,8 @@ public class ManagerController {
         model.addAttribute("body",body);
         return "test/info";
     }
+
+    //test
     @RequestMapping(value = "/test/info/{age}/{height}")
     public String testInfo(@PathVariable String age,@PathVariable String height, Model model){
         model.addAttribute("age",age);
