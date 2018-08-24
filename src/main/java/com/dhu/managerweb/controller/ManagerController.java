@@ -1,14 +1,16 @@
 package com.dhu.managerweb.controller;
 
-import com.dhu.managerweb.UserVO.ResultVO;
-import com.dhu.managerweb.UserVO.UserVO;
+import com.dhu.managerweb.VO.ResultVO;
+import com.dhu.managerweb.VO.UserInfoVO;
+import com.dhu.managerweb.VO.UserVO;
 import com.dhu.managerweb.client.UserClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * creater: LIUYING
@@ -20,6 +22,13 @@ public class ManagerController {
     @Autowired
     UserClient userClient;
 
+    /**
+     * 用户登陆
+     * 调用用户服务的登陆验证
+     * @param loginUser
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/account/login")
     public String login(@ModelAttribute UserVO loginUser, Model model ){
         if(loginUser.getEmail() == null){
@@ -34,16 +43,39 @@ public class ManagerController {
             model.addAttribute("message","登陆失败！");
             return "login";
         }else{
+            //UserSession.setSession(new SessionVO(dataUser.getData().getUserId(),dataUser.getData().getName()));
             model.addAttribute("user",dataUser.getData());
-            return "home";
+            System.out.println("!!!!!Type is"+dataUser.getData().getType());
+            //1为测评过的用户,跳转到recommend.html
+            if(dataUser.getData().getType() == 1){
+                return "recommend";
+            }
+            // 未测评过的用户跳转到test.html
+            else {
+                return "test";
+            }
         }
     }
 
+    /**
+     * 用户注册
+     * 调用用户服务的新增用户
+     * @param registerUser
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/account/register")
     public String register (@ModelAttribute UserVO registerUser, Model model){
-        String msg = userClient.register(registerUser);
-        model.addAttribute("message",msg);
-        return "register";
+        System.out.println("@@@"+registerUser.getEmail());
+        if(registerUser.getEmail() == null){
+            model.addAttribute("message","请输入邮箱！");
+            return "register";
+        }
+        else {
+            String msg = userClient.register(registerUser);
+            model.addAttribute("message", msg);
+            return "register";
+        }
     }
 
     /**
@@ -57,6 +89,7 @@ public class ManagerController {
 
     @RequestMapping(value ="/home")
     public String toHome(){
+        //System.out.println("@@@@"+UserSession.getSession().getUserId()+" - "+UserSession.getSession().getName());
         return "home";
     }
 
@@ -65,27 +98,25 @@ public class ManagerController {
         return "register";
     }
 
-    @RequestMapping(value = "/test/skin")
-    public String testSkin(){
-        return "test/style";
+    @RequestMapping(value = "/test")
+    public String toTest(){
+        return "test";
+    }
+    @RequestMapping(value = "/recommend")
+    public String toRecommend(){
+        return "recommend";
     }
 
-    @RequestMapping(value = "/test/style/{style}")
-    public String testSyle(@PathVariable String style, Model model){
-        model.addAttribute("style",style);
-        return "test/body";
-    }
+    @RequestMapping(value = "/clothes/recommend")
+    public String recommend(HttpServletRequest request){
 
-    @RequestMapping(value = "/test/body/{body}")
-    public String testBody(@PathVariable String body, Model model){
-        model.addAttribute("body",body);
-        return "test/info";
-    }
-
-    //test
-    @RequestMapping(value = "/test/info/{age}/{height}")
-    public String testInfo(@PathVariable String age,@PathVariable String height, Model model){
-        model.addAttribute("age",age);
-        return "test/info";
+        UserInfoVO userInfoVO = new UserInfoVO();
+        userInfoVO.setAge(Integer.valueOf(request.getParameter("age")));
+        userInfoVO.setBody(request.getParameter("body"));
+        userInfoVO.setHeight(Integer.valueOf(request.getParameter("height")));
+        userInfoVO.setSkin(request.getParameter("skin"));
+        userInfoVO.setStyle(request.getParameter("style"));
+        userClient.update(userInfoVO);
+        return "recommend";
     }
 }

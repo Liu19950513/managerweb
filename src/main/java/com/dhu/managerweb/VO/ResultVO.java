@@ -1,4 +1,4 @@
-package com.dhu.managerweb.UserVO;
+package com.dhu.managerweb.VO;
 
 import lombok.Data;
 

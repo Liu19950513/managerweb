@@ -1,6 +1,6 @@
 //package com.dhu.managerweb.fallback;
 //
-//import com.dhu.managerweb.UserVO.UserVO;
+//import com.dhu.managerweb.VO.VO;
 //import com.dhu.managerweb.client.UserClient;
 //import org.springframework.web.bind.annotation.PathVariable;
 //

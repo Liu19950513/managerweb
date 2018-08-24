@@ -23,41 +23,48 @@
 
 <!-- contact -->
 	<div class="login">
-		<div class="container">
-		<form th:action="@{/manager/account/register}" th:object="${registerUser}" method="post">
-			<div class="col-md-6 login-do1 animated wow fadeInLeft" data-wow-delay=".5s">
-				<div class="login-mail">
-					<input type="text" placeholder="邮箱" th:value="${registerUser?.email}" required="">
-					<i class="glyphicon glyphicon-envelope"></i>
-				</div>
-				<div class="login-mail">
-					<input type="password" placeholder="密码" th:value="${registerUser?.password}" required="">
-					<i class="glyphicon glyphicon-lock"></i>
-				</div>
-				<div class="login-mail">
-					<input type="password" placeholder="确认密码" required="">
-					<i class="glyphicon glyphicon-lock"></i>
-				</div>
-				  <a class="news-letter" href="#">
-						 <label class="checkbox1"><input type="checkbox" name="checkbox" ><i> </i>我同意相关条款</label>
-					   </a>
-	
-			</div>
-			<div class="col-md-6 login-do animated wow fadeInRight" data-wow-delay=".5s">
-				<label class="hvr-sweep-to-top login-sub">
-					<input type="submit" value="提交">
-					</label>
-					<p>已经注册</p>
-				<a href="login.html" class="hvr-sweep-to-top">登录</a>
-			</div>
+        <div class="container">
+            <form th:action="@{/manager/account/register}" th:object="${registerUser}" method="post">
+                <div class="col-md-6 login-do1 animated wow fadeInLeft" data-wow-delay=".5s">
+                    <div class="login-mail">
+                        <input type="text" name="email" placeholder="邮箱" th:value="${registerUser?.email}" required="">
+                        <i class="glyphicon glyphicon-envelope"></i>
+                    </div>
+                    <div class="login-mail">
+                        <input type="password" placeholder="昵称" th:value="${registerUser?.name}" required="">
+                        <i class="glyphicon glyphicon-lock"></i>
+                    </div>
+                    <div class="login-mail">
+                        <input type="password" name="password" placeholder="密码" th:value="${registerUser?.password}"required="">
+                        <i class="glyphicon glyphicon-lock"></i>
+                    </div>
+                    <div class="login-mail">
+                        <input type="password" placeholder="确认密码" required="">
+                        <i class="glyphicon glyphicon-lock"></i>
+                    </div>
+                    <a class="news-letter" href="#">
+                        <label class="checkbox1"><input type="checkbox" name="checkbox" ><i> </i>我同意相关条款</label>
+                    </a>
 
-            <div style="margin-bottom: 20px;">
-                <span th:text="${message}"></span>
-            </div>
+                </div>
+                <div class="col-md-6 login-do animated wow fadeInRight" data-wow-delay=".5s">
+                    <label class="hvr-sweep-to-top login-sub">
+                        <input type="submit" value="注册">
+                    </label>
+                    <p>已注册登陆</p>
+                    <a href="/manager/login" class="hvr-sweep-to-top">登陆</a>
+                </div>
 
-			<div class="clearfix"> </div>
-			</form>
-		</div>
+                <div style="margin-bottom: 20px;">
+                    <span th:text="${message}"></span>
+                </div>
+
+                <div class="clearfix"></div>
+            </form>
+
+        </div>
+
+        <div class="clearfix"> </div>
 
 		<div class="fix-footer"></div>
 	</div>

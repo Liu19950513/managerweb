@@ -1,4 +1,4 @@
-package com.dhu.managerweb.UserVO;
+package com.dhu.managerweb.VO;
 
 import lombok.Data;
 
@@ -9,16 +9,14 @@ import lombok.Data;
 @Data
 public class UserVO {
 
-    private String code;
-
     private Long userId;
-    /**
-     * 用户邮箱
-     */
+
     private String email;
-    /**
-     * 用户密码
-     */
+
     private String password;
+
+    private String name;
+
+    private Integer type;
 
 }

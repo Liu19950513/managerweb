@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common::commonHeader('登陆')">
+</head>
+<body>
+<!-- header -->
+<div th:include="common::commonNav"></div>
+<!-- //header -->
+
+<!--content-->
+<div class="product" style="margin-top:5em;">
+		<div id="">
+			<!--<div class="colors animated wow fadeInUp animated" data-wow-delay=".5s" >
+				<h3>肤色1</h3>
+			<br>-->
+                <div class="container" align="center">
+                    <ul class="nav nav-tabs nav-tabs-justified" style="color:#fff;font-size:0.7em;">
+                        <!--  肤色  -->
+                        <div id="skinDiv" style="">
+                            <div class="row" align="center" style="margin-top:0px">
+                                <div class="colors animated wow fadeInUp animated" data-wow-delay=".5s"  style="font-size: 1.7em;" >
+                                    <h3>肤色</h3>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row" align="center" style="margin-top:0px">
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/lightwarm.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="skinJump('浅暖')" class="but-hover1 item_add">浅暖</a>
+                                    </div>
+                                </div></li></div>
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/lightcold.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="skinJump('light_cold')" class="but-hover1 item_add">浅冷</a>
+                                    </div>
+                                </div></li></div>
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/mediumcold.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="skinJump('mid_cold')" class="but-hover1 item_add">中偏冷</a>
+                                    </div>
+                                </div></li></div>
+                            </div>
+
+                            <br>
+                            <div class="row" align="center" style="margin-top:0px">
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/mediumwarm.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="skinJump('mid_warm')" class="but-hover1 item_add">中偏暖</a>
+                                    </div>
+                                </div></li></div>
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/deepwarm.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="skinJump('deep_warm')" class="but-hover1 item_add">深暖</a>
+                                    </div>
+                                </div></li></div>
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/deepcold.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="skinJump('deep_cold')" class="but-hover1 item_add">深冷</a>
+                                    </div>
+                                </div></li></div>
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+                        
+                        <!-- 风格 -->
+                        <div id="styleDiv" style="display:none;">
+                            <div class="row" align="center" style="margin-top:0px">
+                                <div class="colors animated wow fadeInUp animated" data-wow-delay=".5s"  style="font-size: 1.7em;" >
+                                    <h3>风格</h3>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row" align="center" style="margin-top:0px">
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/classical.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="styleJump('classic')" class="but-hover1 item_add">复古</a>
+                                    </div>
+                                </div></li></div>
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/sweet.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="styleJump('cute')" class="but-hover1 item_add">可爱</a>
+                                    </div>
+                                </div></li></div>
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/sexy.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="styleJump('elegant')" class="but-hover1 item_add">优雅</a>
+                                    </div>
+                                </div></li></div>
+                            </div>
+                            <br>
+                            <div class="row" align="center" style="margin-top:0px">
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/lady.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="styleJump('lady')" class="but-hover1 item_add">淑女</a>
+                                    </div>
+                                </div></li></div>
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/nature.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="styleJump('romantic')" class="but-hover1 item_add">浪漫</a>
+                                    </div>
+                                </div></li></div>
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/nature.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="styleJump('simple')" class="but-hover1 item_add">简约</a>
+                                    </div>
+                                </div></li></div>
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+                        
+                        <!-- 体型 -->
+                        <div id="bodyDiv" style="display:none;">
+                            <div class="row" align="center" style="margin-top:0px">
+                                <div class="colors animated wow fadeInUp animated" data-wow-delay=".5s"  style="font-size: 1.7em;" >
+                                    <h3>体型</h3>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row" align="center" style="margin-top:0px">
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/pear.jpg" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="bodyJump('pear')" class="but-hover1 item_add">梨型</a>
+                                    </div>
+                                </div></li></div>
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/rectangle.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="bodyJump('rectangle')" class="but-hover1 item_add">H型</a>
+                                    </div>
+                                </div></li></div>
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/standard.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="bodyJump('standard')" class="but-hover1 item_add">标准</a>
+                                    </div>
+                                </div></li></div>
+                            </div>
+                            <br>
+                            <div class="row" align="center" style="margin-top:0px">
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/circle.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="bodyJump('circle')" class="but-hover1 item_add">圆型</a>
+                                    </div>
+                                </div></li></div>
+                                <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
+                                    <div class=" grid-product ">
+                                        <figure>
+                                            <div class="grid-img">
+                                                <img src="/Image/triangle.png" class="img-responsive" alt="" align="center">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="women">
+
+                                        <p></p>
+                                        <a onclick="bodyJump('triangle')" class="but-hover1 item_add">T型</a>
+                                    </div>
+                                </div></li></div>
+
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+                        
+                        <!-- 颜色 
+                        <div id="colorDiv" style="display:none;">
+                            <div class="row" align="center" style="margin-top:0px">
+                                <div class="colors animated wow fadeInUp animated" data-wow-delay=".5s" >
+                                    <h3>喜爱的颜色</h3>
+                                    <br>
+                                    <div class="container" align="center">
+                                        <div class="color-top">
+                                            <ul>
+                                                <li><a href="#"><i></i></a></li>
+                                                <li><i class="color1"></i></li>
+                                                <li><a onclick="colorJump('color2')"><i class="color2"></i></a></li>
+                                                <li><a onclick="colorJump('color3')"><i class="color3"></i></a></li>
+                                                <li><a onclick="colorJump('color4')"><i class="color4"></i></a></li>
+                                                <li><a onclick="colorJump('color5')"><i class="color5"></i></a></li>
+                                                <li><a onclick="colorJump('color6')"><i class="color6"></i></a></li>
+                                                <li><a onclick="colorJump('color7')"><i class="color7"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                        </div>-->
+                        
+                        <!-- 身高 -->
+                        <div id="heightDiv" style="display:none;">
+                            <div class="row" align="center" style="margin-top:0px">
+                                <div class="mens-toolbar" align="center">
+                                    <script type="text/css">
+                                        .mens-toolbar p select {
+                                            font-size:1.5em;
+                                        }
+                                    </script>
+                                    <div class="colors animated wow fadeInUp animated" data-wow-delay=".5s" >
+                                        <h3 style="font-size: 2em">年龄 &nbsp;&nbsp;&nbsp; 身高</h3>
+                                        <br>
+                                        <br>
+                                        <br>
+
+                                        <p class="showing" style="font-size: 1.3em;margin-top: 40px;"><span style="font-size: 1.5em;">年龄：</span>
+                                            <select id="age" style="font-size: 1.3em">
+                                                <option value="below_20" selected>小于 20 </option>
+                                                <option value="between_20_29">20 - 29 </option>
+                                                <option value="above_30">大于30 </option>
+                                            </select>
+                                        </p>
+                                        <p style="font-size: 1.3em"><span style="font-size: 1.5em;">身高：</span>
+                                            <select id="height" style="font-size: 1.3em">
+                                                <option value="below_160" selected> 160cm 以下 </option>
+                                                <option value="between_160_165"> 160-165cm </option>
+                                                <option value="above_165"> 165cm 以上 </option>
+                                            </select>
+                                        </p>
+
+
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+
+                            <div  class="col-md-12 col-sm-12 col-xs-12" align="center" style="margin-top: 80px;">
+                                <a onclick="sub()"><input type="submit"  class="btn btn-info vertical-center" value=" 提交 " /></a>
+                            </div>
+                        </div>
+
+
+                    </ul>
+                </div>
+			</div>
+		<br>
+
+    
+    <script type="text/javascript">
+        var map={
+            "skin":"",
+            "style":"",
+            "body":"",
+            "age":"",
+            "height":""
+        };
+    
+        
+        function skinJump(skin){
+            console.log("skinJump:"+skin);
+            map.skin=skin;
+            showMap();
+            
+            $("#skinDiv").attr("style","display:none;");
+            $("#styleDiv").attr("style","");
+        }
+        
+        function styleJump(style){
+            console.log("styleJump:"+style);
+            map.style=style;
+            showMap();
+            
+            $("#skinDiv").attr("style","display:none;");
+            $("#styleDiv").attr("style","display:none;");
+            $("#bodyDiv").attr("style","");
+        }
+        
+        function bodyJump(body){
+            console.log("bodyJump:"+body);
+            map.body=body;
+            showMap();
+            
+            $("#skinDiv").attr("style","display:none;");
+            $("#styleDiv").attr("style","display:none;");
+            $("#bodyDiv").attr("style","display:none;");
+            $("#heightDiv").attr("style","");
+        }
+        
+        /*function colorJump(color){
+            console.log("colorJump:"+color);
+            map.color=color;
+            showMap();
+            
+            $("#skinDiv").attr("style","display:none;");
+            $("#styleDiv").attr("style","display:none;");
+            $("#bodyDiv").attr("style","display:none;");
+            $("#colorDiv").attr("style","display:none;");
+            $("#heightDiv").attr("style","");
+        }
+        */
+        function sub(){
+            console.log("sub:"+document.getElementById("age").value+" "+document.getElementById("age").value);
+            map.height=document.getElementById("age").value;
+            map.age=document.getElementById("age").value;
+            showMap();
+
+            //ajax
+            //$.post("/manager/choose",map);
+            window.location.href="/manager/recommend?skin=" + map.skin+
+                                                  "&body=" + map.body+
+                                                  "&style=" + map.style
+                                                  +"&height="+ map.height
+                                                  +"&age=" + map.age;
+        }
+        
+        function showMap(){
+            console.log("Map:"+map.skin+"-"+map.style+"-"+map.body+"-"+map.color+"-"+map.age+"-"+map.height);
+        }
+
+        
+    </script>
+
+	<div class="fix-footer"></div>
+
+</div>
+<!--//content-->
+
+<!-- footer -->
+<div th:include="common::commonFooter"></div>
+<!-- //footer -->
+</body>
+</html>
