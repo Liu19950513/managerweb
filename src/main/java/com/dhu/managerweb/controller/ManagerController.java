@@ -1,22 +1,23 @@
 package com.dhu.managerweb.controller;
 
-import com.dhu.managerweb.VO.ClothesVO;
-import com.dhu.managerweb.VO.ResultVO;
-import com.dhu.managerweb.VO.UserInfoVO;
-import com.dhu.managerweb.VO.UserVO;
+import com.dhu.managerweb.VO.*;
 import com.dhu.managerweb.client.ClothesClient;
 import com.dhu.managerweb.client.UserClient;
+import feign.Feign;
+import feign.gson.GsonDecoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * creater: LIUYING
@@ -52,7 +53,6 @@ public class ManagerController {
             model.addAttribute("message","登陆失败！");
             return "login";
         }else{
-            //UserSession.setSession(new SessionVO(dataUser.getData().getUserId(),dataUser.getData().getName()));
             model.addAttribute("user",dataUser.getData());
             //Cookie cookies=new Cookie("userId",String.valueOf(dataUser.getData().getUserId()));
             request.getSession().setAttribute("userId",String.valueOf(dataUser.getData().getUserId()));
@@ -133,12 +133,12 @@ public class ManagerController {
                                                             +request.getParameter("skin");
     }
 
-    @RequestMapping(value = "/clothesRecommend")
+    @RequestMapping(value = "/clothesRecommend",method = RequestMethod.GET)
     public String recommend(HttpServletRequest request,Model model){
         String skin=request.getParameter("skin");
         String style=request.getParameter("style");
         System.out.println(skin+"-"+style);
-        ResultVO<ClothesVO> clothesList = clothesClient.list(style,skin);
+        List<ClothesVO> clothesList = clothesClient.listForRecommend(style,skin);
         model.addAttribute("clothesList",clothesList);
         return "recommend";
     }

@@ -22,4 +22,13 @@ public class ResultVO<T> {
      * 具体内容
      */
     private T data;
+
+//    public ResultVO(T data,Integer code,String msg){
+//        this.code = code;
+//        this.msg = msg;
+//        this.data = data;
+//    }
+//
+//    public ResultVO(){
+//    }
 }

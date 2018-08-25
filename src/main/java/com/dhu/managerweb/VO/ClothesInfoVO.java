@@ -12,8 +12,8 @@ import lombok.Data;
  * 返回给前台页面所需要的服装信息对象
  */
 public class ClothesInfoVO {
-    @JsonProperty("id")
-    private String clothesId;
+    //@JsonProperty("id")
+    private Long clothesId;
 
     private String title;
 
@@ -22,5 +22,9 @@ public class ClothesInfoVO {
     private String url;
 
     private Integer category;
+
+    public  ClothesInfoVO(){
+
+    }
 
 }
