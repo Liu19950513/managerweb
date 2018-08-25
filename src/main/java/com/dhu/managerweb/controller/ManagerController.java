@@ -1,16 +1,22 @@
 package com.dhu.managerweb.controller;
 
+import com.dhu.managerweb.VO.ClothesVO;
 import com.dhu.managerweb.VO.ResultVO;
 import com.dhu.managerweb.VO.UserInfoVO;
 import com.dhu.managerweb.VO.UserVO;
+import com.dhu.managerweb.client.ClothesClient;
 import com.dhu.managerweb.client.UserClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * creater: LIUYING
@@ -22,6 +28,9 @@ public class ManagerController {
     @Autowired
     UserClient userClient;
 
+    @Autowired
+    ClothesClient clothesClient;
+
     /**
      * 用户登陆
      * 调用用户服务的登陆验证
@@ -30,14 +39,14 @@ public class ManagerController {
      * @return
      */
     @RequestMapping(value = "/account/login")
-    public String login(@ModelAttribute UserVO loginUser, Model model ){
+    public String login(@ModelAttribute UserVO loginUser, Model model,HttpServletRequest request ){
         if(loginUser.getEmail() == null){
             //验证失败
             model.addAttribute("message","请输入有效邮箱！");
             return "login";
         }
         //调用验证服务
-        ResultVO<UserVO> dataUser = userClient.validate(loginUser.getEmail(),loginUser.getPassword());
+        ResultVO<UserInfoVO> dataUser = userClient.validate(loginUser.getEmail(),loginUser.getPassword());
         if(dataUser.getData().getUserId() == null){
             //验证失败
             model.addAttribute("message","登陆失败！");
@@ -45,10 +54,12 @@ public class ManagerController {
         }else{
             //UserSession.setSession(new SessionVO(dataUser.getData().getUserId(),dataUser.getData().getName()));
             model.addAttribute("user",dataUser.getData());
-            System.out.println("!!!!!Type is"+dataUser.getData().getType());
+            //Cookie cookies=new Cookie("userId",String.valueOf(dataUser.getData().getUserId()));
+            request.getSession().setAttribute("userId",String.valueOf(dataUser.getData().getUserId()));
             //1为测评过的用户,跳转到recommend.html
-            if(dataUser.getData().getType() == 1){
-                return "recommend";
+            if(dataUser.getData().getStyle() != null){
+                return "redirect:/manager/clothesRecommend?style="+dataUser.getData().getStyle()+"&skin="
+                        +dataUser.getData().getSkin();
             }
             // 未测评过的用户跳转到test.html
             else {
@@ -89,7 +100,6 @@ public class ManagerController {
 
     @RequestMapping(value ="/home")
     public String toHome(){
-        //System.out.println("@@@@"+UserSession.getSession().getUserId()+" - "+UserSession.getSession().getName());
         return "home";
     }
 
@@ -102,21 +112,36 @@ public class ManagerController {
     public String toTest(){
         return "test";
     }
+
     @RequestMapping(value = "/recommend")
     public String toRecommend(){
         return "recommend";
     }
 
-    @RequestMapping(value = "/clothes/recommend")
-    public String recommend(HttpServletRequest request){
+    @RequestMapping(value = "/userTest")
+    public String test(HttpServletRequest request){
 
         UserInfoVO userInfoVO = new UserInfoVO();
+        userInfoVO.setUserId(Long.valueOf(String.valueOf(request.getSession().getAttribute("userId"))));
         userInfoVO.setAge(Integer.valueOf(request.getParameter("age")));
         userInfoVO.setBody(request.getParameter("body"));
         userInfoVO.setHeight(Integer.valueOf(request.getParameter("height")));
         userInfoVO.setSkin(request.getParameter("skin"));
         userInfoVO.setStyle(request.getParameter("style"));
         userClient.update(userInfoVO);
+        return "redirect:/manager/clothesRecommend?style="+request.getParameter("style")+"&skin="
+                                                            +request.getParameter("skin");
+    }
+
+    @RequestMapping(value = "/clothesRecommend")
+    public String recommend(HttpServletRequest request,Model model){
+        String skin=request.getParameter("skin");
+        String style=request.getParameter("style");
+        System.out.println(skin+"-"+style);
+        ResultVO<ClothesVO> clothesList = clothesClient.list(style,skin);
+        model.addAttribute("clothesList",clothesList);
         return "recommend";
     }
+
+
 }

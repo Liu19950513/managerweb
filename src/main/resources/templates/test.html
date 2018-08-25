@@ -35,7 +35,7 @@
                                     <div class="women">
 
                                         <p></p>
-                                        <a onclick="skinJump('浅暖')" class="but-hover1 item_add">浅暖</a>
+                                        <a onclick="skinJump('light_warm')" class="but-hover1 item_add">浅暖</a>
                                     </div>
                                 </div></li></div>
                                 <div class="col-md-4 col-sm-4 col-xs-4" align="center"><li><div class="grid-pro">
@@ -349,16 +349,16 @@
 
                                         <p class="showing" style="font-size: 1.3em;margin-top: 40px;"><span style="font-size: 1.5em;">年龄：</span>
                                             <select id="age" style="font-size: 1.3em">
-                                                <option value="below_20" selected>小于 20 </option>
-                                                <option value="between_20_29">20 - 29 </option>
-                                                <option value="above_30">大于30 </option>
+                                                <option value="1" selected>小于 20 </option>
+                                                <option value="2">20 - 29 </option>
+                                                <option value="3">大于30 </option>
                                             </select>
                                         </p>
                                         <p style="font-size: 1.3em"><span style="font-size: 1.5em;">身高：</span>
                                             <select id="height" style="font-size: 1.3em">
-                                                <option value="below_160" selected> 160cm 以下 </option>
-                                                <option value="between_160_165"> 160-165cm </option>
-                                                <option value="above_165"> 165cm 以上 </option>
+                                                <option value="1" selected> 160cm 以下 </option>
+                                                <option value="2"> 160-165cm </option>
+                                                <option value="3"> 165cm 以上 </option>
                                             </select>
                                         </p>
 
@@ -443,7 +443,7 @@
 
             //ajax
             //$.post("/manager/choose",map);
-            window.location.href="/manager/recommend?skin=" + map.skin+
+            window.location.href="/manager/userTest?skin=" + map.skin+
                                                   "&body=" + map.body+
                                                   "&style=" + map.style
                                                   +"&height="+ map.height

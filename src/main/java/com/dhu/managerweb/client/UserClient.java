@@ -15,12 +15,15 @@ import org.springframework.web.bind.annotation.*;
 public interface UserClient {
 
     @GetMapping("/validate/{email}/{password}")
-    ResultVO<UserVO> validate(@PathVariable("email") String email, @PathVariable("password") String password);
+    ResultVO<UserInfoVO> validate(@PathVariable("email") String email, @PathVariable("password") String password);
 
     @PostMapping("/register/")
     String register(@RequestBody UserVO userVO);
 
     @PostMapping("/update")
     void update(@RequestBody UserInfoVO userInfoVO);
+
+    @PostMapping("/userInfoForRecommend")
+    UserInfoVO listForRecommend(@RequestParam(value = "1") Long userId);
 
 }
