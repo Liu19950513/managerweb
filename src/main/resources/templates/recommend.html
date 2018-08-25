@@ -64,21 +64,21 @@
 		<!--//col-md-3左侧导航-->
 		
 		<!--右侧商品列表-->
-			<div class="col-md-9 animated wow fadeInRight" data-wow-delay=".5s">
+			<div class="col-md-9 animated wow fadeInRight" data-wow-delay=".5s" th:each="data : ${clothesList}">
 				
 
-			<div class="mid-popular">
-				<div class="col-sm-4 item-grid item-gr  simpleCart_shelfItem">
-							<div class="grid-pro">
+			<div class="mid-popular" th:if="${data.categoryType} eq 1">
+				<div class="col-sm-4 item-grid item-gr  simpleCart_shelfItem" th:each="clothes : ${data.clothesInfoVoList}">
+							<div class="grid-pro" >
 								<div  class=" grid-product " >
 									<figure>		
 										<a href="#">
 											<div class="grid-img">
-												<img  src="/images/Tb1.jpg" class="img-responsive" alt="">
+												<img  th:src="${clothes.url}" class="img-responsive" alt="">
 											</div>
-											<div class="grid-img">
-												<img  src="/images/T1.jpg" class="img-responsive"  alt="">
-											</div>			
+											<!--<div class="grid-img">-->
+												<!--<img  src="/images/T1.jpg" class="img-responsive"  alt="">-->
+											<!--</div>			-->
 										</a>		
 									</figure>	
 								</div>
@@ -87,7 +87,7 @@
 								</div>
 							</div>
 				</div>
-						
+
                 <div class="clearfix"></div>
 				</div>
 			</div>
