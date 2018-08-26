@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common::commonHeader('个性搭配')">
+</head>
+<body>
+<!-- header -->
+<div th:include="common::commonNav"></div>
+<!-- //header -->
+
+
+<!-- banner 登陆后-->
+<div class="banner-top" style="margin-top:5em;" >
+    <div class="container" >
+
+        <h3 class="animated wow fadeInRight" data-wow-delay=".5s">
+            <label th:text="${user?.name}"></label>,您好！<label>/</label> <a href="/manager/home">退出</a>
+        </h3>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!-- //banner -->
+
+<!--content-->
+<div class="product">
+    <div class="container">
+        <!--col-md-3左侧导航-->
+        <div class="col-md-3 product-bottom">
+            <!--categories-->
+            <div class="categories animated wow fadeInUp animated" data-wow-delay=".5s" >
+                <h3>分类</h3>
+                <ul class="cate">
+                    <li><i class="glyphicon glyphicon-menu-right" ></i><a href="/manager/clothesRecommend/1">上衣</a> <span>(5)</span></li>
+                    <li><i class="glyphicon glyphicon-menu-right" ></i><a href="/manager/clothesRecommend/2">外套</a> <span>(5)</span></li>
+
+                    <li><i class="glyphicon glyphicon-menu-right" ></i><a href="/manager/clothesRecommend/4">裤装</a> <span>(5)</span></li>
+                    <li><i class="glyphicon glyphicon-menu-right" ></i><a href="/manager/clothesRecommend/3">裙装</a> <span>(5)</span></li>
+
+                </ul>
+            </div>
+            <!--//menu-->
+
+            <!--colors-->
+            <div class="colors animated wow fadeInLeft animated" data-wow-delay=".5s" >
+                <h3>Colors</h3>
+
+                <div class="color-top">
+                    <ul>
+                        <li><a href="#"><i></i></a></li>
+                        <li><a href="#"><i class="color1"></i></a></li>
+                        <li><a href="#"><i class="color2"></i></a></li>
+                        <li><a href="#"><i class="color3"></i></a></li>
+                        <li><a href="#"><i class="color4"></i></a></li>
+                        <li><a href="#"><i class="color5"></i></a></li>
+                        <li><a href="#"><i class="color6"></i></a></li>
+                        <li><a href="#"><i class="color7"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--//colors-->
+
+        </div>
+        <!--//col-md-3左侧导航-->
+
+
+
+        <div class="col-md-9 animated wow fadeInRight" data-wow-delay=".5s">
+
+            <div class="col-md-5 grid-im">
+                <div class="flexslider"  >
+                    <ul class="slides" >
+                        <li  th:attr="data-thumb=${clothesList.get(0).url}">
+                            <div  class="thumb-image"> <img th:src="${clothesList.get(0).url}" src="/images/T1.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                        </li>
+                        <li  th:attr="data-thumb=${clothesList.get(1).url}">
+                            <div  class="thumb-image"> <img th:src="${clothesList.get(1).url}" src="/images/T1.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                        </li>
+                        <li  th:attr="data-thumb=${clothesList.get(2).url}">
+                            <div  class="thumb-image"> <img th:src="${clothesList.get(2).url}" src="/images/T1.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-7 recommand2-top-in">
+                <div class="span_2_of_a1 simpleCart_shelfItem">
+                    <h3>推荐搭配</h3>
+                    <p class="in-para"> 专为您定制的私人搭配方案</p>
+                    <div class="price_single">
+
+                        <a href="#" data-text="加入购物车" class="but-hover1 item_add">整体加入购物车</a>
+                        <div class="clearfix"></div>
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+            <!----->
+
+            <div class="clearfix"> </div>
+            <div class=" col-md-si">
+                <div class="col-sm-4 item-grid simpleCart_shelfItem" th:each="clothes:${clothesList}">
+                    <div class="grid-pro">
+                        <div  class=" grid-product " >
+                            <figure>
+                                <a href="#">
+                                    <div class="grid-img">
+                                        <img  th:src="${clothes.url}" src="/images/Tb1.jpg" class="img-responsive" alt="">
+                                    </div>
+                                </a>
+                            </figure>
+                        </div>
+                        <div class="women">
+                            <p><a href="#"><span class="glyphicon glyphicon-heart"></span></a></p>
+                            <a href="#" data-text="加入购物车" class="but-hover1 item_add" style="color:#fff;font-size:0.7em;">加入购物车</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="fix-footer"></div>
+    </div>
+
+</div>
+<!--//products-->
+
+<!-- footer -->
+<div th:include="common::commonFooter"></div>
+<!-- //footer -->
+
+
+<script th:src="@{/js/imagezoom.js}"></script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script defer th:src="@{/js/jquery.flexslider.js}"></script>
+<link rel="stylesheet" th:href="@{/css/flexslider.css}" type="text/css" media="screen" />
+
+<script>
+// Can also be used with $(document).ready()
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    controlNav: "thumbnails"
+  });
+});
+</script>
+
+
+</body>
+</html>

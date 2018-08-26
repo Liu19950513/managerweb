@@ -18,5 +18,4 @@ public class UserVO {
     private String name;
 
     private Integer type;
-
 }

@@ -23,8 +23,5 @@ public class ClothesInfoVO {
 
     private Integer category;
 
-    public  ClothesInfoVO(){
-
-    }
 
 }
